@@ -7,4 +7,20 @@ export default defineNuxtConfig({
       link: [{ rel: 'stylesheet', href: 'https://fonts.googleapis.com/icon?family=Material+Icons' }],
     },
   },
+  css: ['~/assets/styles/main.scss'],
+  vite: {
+    css: {
+      preprocessorOptions: {
+        scss: {
+          additionalData: '@import "~/assets/styles/tools/_mixins.scss";',
+        },
+      },
+    },
+  },
+  postcss: {
+    plugins: {
+      autoprefixer: {},
+    },
+  },
+  modules: ['@vueuse/nuxt'],
 });
