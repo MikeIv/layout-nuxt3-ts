@@ -1,8 +1,8 @@
 <template>
-  <section>
-    <nav class="header__mobile-menu">
+  <section class="header">
+    <nav class="header__nav">
       <ul class="header__list">
-        <li class="header__item-mob a-font__m-m" v-for="(item, index) in routeLinks" :key="index">
+        <li class="header__item a-font__m-m" v-for="(item, index) in routeLinks" :key="index">
           <NuxtLink :to="item.route">{{ item.name }}</NuxtLink>
         </li>
       </ul>
@@ -10,17 +10,19 @@
   </section>
 </template>
 
-<script setup>
+<script setup lang="ts">
 const routeLinks = [
-  {
-    name: 'Nuxtemplate',
-    route: '/nuxt',
-  },
   {
     name: 'Main',
     route: '/',
   },
+  {
+    name: 'Nuxtemplate',
+    route: '/nuxt',
+  },
 ];
 </script>
 
-<style scoped></style>
+<style scoped lang="scss">
+@import './header.scss';
+</style>
