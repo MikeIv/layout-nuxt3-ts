@@ -8,6 +8,11 @@
         <p>{{ item.location }}</p>
       </li>
     </ul>
+
+    <br />
+    <li v-for="item in currency.suggestions" :key="item.index">
+      <p>{{ item.value }}</p>
+    </li>
   </section>
 </template>
 
@@ -20,6 +25,26 @@ const articles = ref<Articles[]>([
   { title: 'Article3', location: 'point3', description: 'lorem lorem', id: '3' },
   { title: 'Article4', location: 'point4', description: 'lorem lorem', id: '4' },
 ]);
+
+const url = 'https://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/party';
+const token = '0845425a22e3e674a4ef51f59dca016bc1c775b5';
+const query = 'сбербанк';
+
+const options = {
+  method: 'POST',
+  mode: 'cors',
+  headers: {
+    'Content-Type': 'application/json',
+    'Accept': 'application/json',
+    'Authorization': 'Token ' + token,
+  },
+  body: JSON.stringify({ query: query }),
+};
+
+const { data } = await useFetch(url, options);
+console.log('dataDD', data);
+const currency = data.value;
+console.log('currency', currency);
 </script>
 
 <style scoped lang="scss">
