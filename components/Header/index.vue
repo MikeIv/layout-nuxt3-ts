@@ -17,6 +17,10 @@ const routeLinks = [
     route: '/',
   },
   {
+    name: 'Cards',
+    route: '/cards',
+  },
+  {
     name: 'Nuxtemplate',
     route: '/nuxt',
   },
