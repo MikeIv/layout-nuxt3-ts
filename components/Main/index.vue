@@ -12,7 +12,7 @@
 </template>
 
 <script setup lang="ts">
-import Articles from '~/types/articles';
+import Articles from '~/types/Articles';
 
 const articles = ref<Articles[]>([
   { title: 'Article1', location: 'point1', description: 'lorem lorem', id: '1' },
