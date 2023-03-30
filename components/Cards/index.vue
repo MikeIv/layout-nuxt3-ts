@@ -3,7 +3,12 @@
     <h1 class="cards__header">Карточки</h1>
     <ul class="cards__list">
       <li class="cards__item" v-for="item in currency.suggestions" :key="item.index">
-        <p>{{ item.value }}</p>
+        <h2 class="cards__item-header a-font__h3">{{ item.value }}</h2>
+        <div class="cards__content">
+          <p>{{ item.data.address.value }}</p>
+          <p v-if="item.data.management">{{ item.data.management.name }}</p>
+          <p v-if="item.data.ogrn">{{ item.data.ogrn }}</p>
+        </div>
       </li>
     </ul>
   </section>
