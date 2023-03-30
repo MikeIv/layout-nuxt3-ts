@@ -1,4 +1,4 @@
-.main {
+.cards {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -16,8 +16,19 @@
 
   &__list {
     display: flex;
-    flex-wrap: wrap;
-    gap: rem(20);
+    flex-direction: column;
+    justify-content: flex-start;
+    row-gap: rem(20);
     list-style: none;
+  }
+
+  &__item {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100%;
+    min-height: rem(200);
+    padding: rem(20) rem(40);
+    background-color: var(--a-bgLight);
   }
 }
