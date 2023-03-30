@@ -1,6 +1,12 @@
 <template>
   <section class="cards">
     <h1 class="cards__header">Карточки</h1>
+    <div class="cards__btn-group">
+      <button @click="handleClick('value')">Сортировка по Организации</button>
+      <button @click="handleClick('name')">Сортировка по имени</button>
+      <button @click="handleClick('ogrn')">Сортировка по ОГРН</button>
+    </div>
+    <div class="">Сортировка по {{ order }}</div>
     <ul class="cards__list">
       <li class="cards__item" v-for="item in currency.suggestions" :key="item.index">
         <h2 class="cards__item-header a-font__h3">{{ item.value }}</h2>
@@ -15,6 +21,8 @@
 </template>
 
 <script setup lang="ts">
+import OrderCards from '~~/types/OrderCards';
+
 const url = 'https://suggestions.dadata.ru/suggestions/api/4_1/rs/suggest/party';
 const token = '0845425a22e3e674a4ef51f59dca016bc1c775b5';
 const query = 'сбербанк';
@@ -31,9 +39,14 @@ const options = {
 };
 
 const { data } = await useFetch(url, options);
-console.log('dataDD', data);
 const currency = data.value;
 console.log('currency', currency);
+
+const order = ref<OrderCards>('value');
+
+const handleClick = (card: OrderCards) => {
+  order.value = card;
+};
 </script>
 
 <style scoped lang="scss">
