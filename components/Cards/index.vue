@@ -2,9 +2,9 @@
   <section class="cards">
     <h1 class="cards__header">Карточки</h1>
     <div class="cards__btn-group">
-      <button @click="handleClick('value')">Сортировка по Организации</button>
-      <button @click="handleClick('name')">Сортировка по имени</button>
-      <button @click="handleClick('ogrn')">Сортировка по ОГРН</button>
+      <button class="cards__btn-filter" @click="handleClick('value')">Сортировка по Организации</button>
+      <button class="cards__btn-filter" @click="handleClick('name')">Сортировка по имени</button>
+      <button class="cards__btn-filter" @click="handleClick('ogrn')">Сортировка по ОГРН</button>
     </div>
     <div class="">Сортировка по {{ order }}</div>
     <ul class="cards__list">
